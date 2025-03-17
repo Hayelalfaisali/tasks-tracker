@@ -15,6 +15,7 @@ import { HttpClientModule } from '@angular/common/http';
     TasksComponent,
     FontAwesomeModule,
     HttpClientModule,
+    
   ], 
 })
 export class AppComponent {
