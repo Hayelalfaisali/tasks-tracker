@@ -18,6 +18,10 @@ export class TasksComponent {
         () => (this.tasks = this.tasks.filter((t) => t.id !== task.id))
       );
   }
+  toggleReminder(task: Task) {
+    task.reminder = !task.reminder;
+    this.taskService.updateTaskReminder(task).subscribe();  
+  }
   constructor(private taskService: TaskService) {}
   ngOnInit() {
     this.taskService.getTasks().subscribe((tasks) => (this.tasks = tasks));
