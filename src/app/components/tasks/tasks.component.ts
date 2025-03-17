@@ -11,6 +11,13 @@ import { TaskService } from '../../services/task.service';
 })
 export class TasksComponent {
   tasks: Task[] = [];
+  deleteTask(task: Task) {
+    this.taskService
+      .deleteTask(task)
+      .subscribe(
+        () => (this.tasks = this.tasks.filter((t) => t.id !== task.id))
+      );
+  }
   constructor(private taskService: TaskService) {}
   ngOnInit() {
     this.taskService.getTasks().subscribe((tasks) => (this.tasks = tasks));
